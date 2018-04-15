@@ -25,6 +25,8 @@ from collections import Counter
 
 
 def get_naive_predictions(y_train, y_test):
+    print("Training Naive Approach")
+
     c = Counter(y_train)
     most_common = c.most_common()[0][0]
     predictions = [most_common]*len(y_test)
@@ -33,6 +35,7 @@ def get_naive_predictions(y_train, y_test):
 
 
 def get_logreg_results(X_train, X_test, y_train, y_test):
+    print("Training Logistic Regression")
     clf = LogisticRegression()
     skf = StratifiedKFold(n_splits=5)
     
@@ -53,6 +56,8 @@ def get_logreg_results(X_train, X_test, y_train, y_test):
 
 
 def get_svm_results(X_train, X_test, y_train, y_test):
+    print("Training SVM")
+
     clf = SVC(kernel='linear')
     skf = StratifiedKFold(n_splits=5)
     
@@ -73,6 +78,8 @@ def get_svm_results(X_train, X_test, y_train, y_test):
 
 
 def get_neural_results(X_train, X_test, y_train, y_test):
+    print("Training Neural Network")
+
     model = Sequential()
     model.add(Dense(10000, input_dim=X_train.shape[1], init='normal', activation='relu'))
     model.add(Dropout(0.7))
