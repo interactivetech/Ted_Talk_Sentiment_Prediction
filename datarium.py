@@ -22,26 +22,26 @@ from nltk.tokenize import sent_tokenize
 
 def get_years():
     def get_num(s):
-    ls = re.findall(r'-?\d+\.?\d*', s)
-    if len(ls)==0:
-        years.append(years[-1])
-    else:
-        try:
-            if int(ls[0]) < 100:
-                years.append(years[-1])
-            else:
-                years.append(int(ls[0]))
-        except:
+        ls = re.findall(r'-?\d+\.?\d*', s)
+        if len(ls)==0:
             years.append(years[-1])
-    
+        else:
+            try:
+                if int(ls[0]) < 100:
+                    years.append(years[-1])
+                else:
+                    years.append(int(ls[0]))
+            except:
+                years.append(years[-1])
+
     years = []
     df['event'].apply(get_num)
 
     scaler = StandardScaler()
     scaler.fit(np.array(years).reshape(-1, 1))
-    
+
     years_scaled = scaler.transform(np.array(years).reshape(-1, 1))
-    
+
     return years_scaled
 
 
@@ -340,13 +340,13 @@ def get_sentovec(train=False, num_epochs=10, oversample=False, description=False
 # In[13]:
 
 
-split_data(test_frac=0.15, undersample=False)
+# split_data(test_frac=0.15, undersample=False)
 
 
 # In[14]:
 
 
-create_tfidf(oversample=False, description=True)
+# create_tfidf(oversample=False, description=True)
 
 
 # In[ ]:
