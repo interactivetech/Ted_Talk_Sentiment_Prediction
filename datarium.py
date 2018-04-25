@@ -12,6 +12,8 @@ import nltk
 
 import re
 
+from sklearn.preprocessing import StandardScaler
+
 from gensim.models.doc2vec import TaggedDocument
 
 from nltk.tokenize import sent_tokenize
