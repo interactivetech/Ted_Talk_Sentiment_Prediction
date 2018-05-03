@@ -1,4 +1,4 @@
-# Ted_Talk_Sentiment_Prediction
+# Ted Talk Sentiment Prediction
 We are exploring several language models (LSTM, DOC2Vec, CNNTextClassifier) and see how it performs on text classification
 
 We examine sentiment analysis on the Ted Talk dataset. 
